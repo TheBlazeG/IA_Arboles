@@ -9,7 +9,7 @@ public class StateMachine : MonoBehaviour
     public int currentWaypoint = 0;
     public NavMeshAgent agent;
     public Transform player;
-    public Blackboard blackboard = new Blackboard();
+    public Blackboard blackboard;
 
     void Start()
     {
