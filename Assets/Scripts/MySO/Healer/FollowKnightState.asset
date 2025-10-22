@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1554bbb6e22983443a29df245591e980, type: 3}
+  m_Name: FollowKnightState
+  m_EditorClassIdentifier: 
+  transitions:
+  - condition: {fileID: 11400000, guid: f33580ec43ceb284387916a0b253f22d, type: 2}
+    state: {fileID: 11400000, guid: 8f486b82f367faa4d9dc9c4ff972bb2f, type: 2}
+  - condition: {fileID: 11400000, guid: 59670fd657cad62419e5b97ca625997d, type: 2}
+    state: {fileID: 11400000, guid: 5438b3ee7f9922a4b9d6c9a95fe0a5d3, type: 2}

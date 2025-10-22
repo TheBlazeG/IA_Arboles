@@ -5,6 +5,7 @@ public class StateMachine : MonoBehaviour
 {
     public State CurrentState { get; private set; }
     [SerializeField] State initialState;
+    public int health = 100;
     public Transform[] route;
     public int currentWaypoint = 0;
     public NavMeshAgent agent;
@@ -12,7 +13,7 @@ public class StateMachine : MonoBehaviour
     public Blackboard blackboard;
 
     void Start()
-    {
+    {   blackboard = new Blackboard();
         blackboard.Set("Player", GameObject.FindGameObjectWithTag("Player").transform);
         ChangeState(initialState);
     }

@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     CharacterController controller;
     private Player actions;
+    public float health = 100;
     public float speed = 2;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -2,7 +2,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "FullBatteryCondition", menuName = "FSM/Conditions/FullBatteryCondition")]
 public class FullBatteryCondition : Condition
 {
-    float battery= 100;
+    float battery= 0;
     public override bool Check(StateMachine stateMachine)
     {
         battery+=5*Time.deltaTime;

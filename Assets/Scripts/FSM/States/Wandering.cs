@@ -14,7 +14,7 @@ public class Wander : State
 
     public override void FrameUpdate(StateMachine stateMachine) 
     {
-        if (Vector3.Distance(stateMachine.transform.position, stateMachine.route[stateMachine.currentWaypoint].position)<1f)
+        if (Vector3.Distance(stateMachine.transform.position, stateMachine.route[stateMachine.currentWaypoint].position)<2f)
         {
 
             if (stateMachine.currentWaypoint < 3)
