@@ -1,8 +1,61 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace BehaviourTree
+namespace BehaviourTrees
 {
+    public class Sequence : Node
+    {
+        public Sequence(string name) : base(name)
+        {
+        }
+
+        public override status Process()
+        {
+            if (currentChild<children.Count)
+            {
+                switch (children[currentChild].Process())
+                {
+                    case status.Running:
+                        return status.Running;
+                    case status.Failure:
+                        Reset();
+                        break;
+                    default:
+                        currentChild++;
+                        return currentChild== children.Count ? status.Success : status.Running;
+                }
+            }
+            Reset();
+            return status.Success;
+        }
+    }
+
+    public class Selector : Node
+    {
+        public Selector(string name) : base(name) { }
+
+        public override status Process()
+        {
+            if (currentChild<children.Count)
+            {
+                switch (children[currentChild].Process())
+                {
+                    case status.Running:
+                        return status.Running;
+                    case status.Success:
+                        Reset();
+                        return status.Success;
+                    default:
+                        currentChild++;
+                        return currentChild==children.Count ? status.Failure : status.Running;
+                        
+                }
+            }
+            return status.Failure;
+        }
+    }
+
+    #region base
     public class Node 
     {
         public enum status
@@ -73,5 +126,6 @@ namespace BehaviourTree
             return status.Success;
         }
     }
+    #endregion
 }
 
