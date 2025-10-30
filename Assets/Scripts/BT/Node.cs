@@ -19,7 +19,7 @@ namespace BehaviourTrees
                         return status.Running;
                     case status.Failure:
                         Reset();
-                        break;
+                        return status.Failure;
                     default:
                         currentChild++;
                         return currentChild== children.Count ? status.Success : status.Running;
