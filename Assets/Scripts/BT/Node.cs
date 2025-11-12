@@ -13,10 +13,10 @@ namespace BehaviourTrees
             {
                 switch (child.Process())
                 {
-                    case status.Running:
-                        return status.Running;
                     case status.Success:
                         return status.Success;
+                    case status.Running:
+                        return status.Running;
                     default:
                         continue;
                 }
@@ -36,11 +36,12 @@ namespace BehaviourTrees
                 switch (children[currentChild].Process())
                 {
                     case status.Running:
+                        Reset();
                         return status.Running;
                     case status.Failure:
                         Reset();
                         return status.Failure;
-                    default:
+                    case status.Success:
                         currentChild++;
                         return currentChild == children.Count ? status.Success : status.Running;
                 }
